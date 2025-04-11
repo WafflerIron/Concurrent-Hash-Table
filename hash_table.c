@@ -149,6 +149,14 @@
          }
          cur = cur->next;
      }
+
+     if(cur) {
+        /* Log search found with hash included by computing hash */
+        uint32_t hash = jenkins_hash(name);
+        log_event("SEARCH,%u,%s,%u", hash, name, salary);
+    } else {
+        log_event("SEARCH: NOT FOUND NOT FOUND");
+    }
      
      pthread_rwlock_unlock(&table_lock);
      lockRelCount++;

@@ -130,7 +130,7 @@ void *thread_routine(void *arg) {
             pthread_mutex_lock(&cv_mutex);
             remaining_inserts--;
             if (remaining_inserts == 0) {
-                log_event("SIGNALING: ALL INSERTS COMPLETE");
+                //log_event("SIGNALING: ALL INSERTS COMPLETE");
                 pthread_cond_broadcast(&insert_cv);
             }
             pthread_mutex_unlock(&cv_mutex);
@@ -151,14 +151,15 @@ void *thread_routine(void *arg) {
         }
         case CMD_SEARCH: {
             unsigned int result_salary;
-            int found = searchRecord(cmd->name, &result_salary);
-            if(found) {
-                /* Log search found with hash included by computing hash */
+            //int found = 
+            searchRecord(cmd->name, &result_salary);
+            /*if(found) {
+                Log search found with hash included by computing hash 
                 uint32_t hash = jenkins_hash(cmd->name);
                 log_event("SEARCH,%u,%s,%u", hash, cmd->name, result_salary);
             } else {
                 log_event("SEARCH: NOT FOUND NOT FOUND");
-            }
+            }*/
             break;
         }
         case CMD_PRINT:
