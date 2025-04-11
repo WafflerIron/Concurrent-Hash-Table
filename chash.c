@@ -246,7 +246,7 @@ int main(void) {
     free(threads);
     
     /* Print finished message */
-    fprintf(output_fp, "Finished all threads.\n");
+    fprintf(output_fp, "Finished all threads.");
     
     /* Print summary and final sorted hash table */
     fprintf(output_fp, "\n");

@@ -116,7 +116,7 @@
              lockRelCount++;
              log_event("WRITE LOCK RELEASED");
              /* Log the deletion */
-             log_event("DELETE,%u,%s", hash, name);
+             log_event("DELETE,%s", name);
              return;
          }
          prev = cur;
