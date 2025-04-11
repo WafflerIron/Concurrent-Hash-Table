@@ -1,3 +1,5 @@
+#include <stdint.h>
+#include <stdio.h>
 #include "rwlock.c"
 
 uint32_t oneTimeHash(const uint8_t* key, size_t length) {
@@ -12,4 +14,17 @@ uint32_t oneTimeHash(const uint8_t* key, size_t length) {
   hash ^= hash >> 11;
   hash += hash << 15;
   return hash;
+}
+
+typedef struct hash_struct
+{
+  uint32_t hash; // 32-bit unsigned integer for the hash value produced by running the name text through oneTimeHash
+  char name[50]; // Arbitrary string up to 50 characters long
+  uint32_t salary; // 32-bit unsigned integer to represent an annual salary.
+  struct hash_struct *next; // pointer to the next node in the list
+} hashRecord;
+
+int main() {
+
+  return 0;
 }
